@@ -1,0 +1,8 @@
+immagini di qualsiasi tipo e dimensione, e anche video di youtube, nella schermata principale (index).
+
+ogni immagine (o video) conterrà l'immagine stessa, l'anteprima del testo da inserire e far visualizzare nella schermata principale, e un testo da inserire nel blog. 
+
+il dominio ha un costo annuale, e dovrà essere rinnovato ogni anno per continuare a far esistere il sito. 
+
+è sconsigliato per una questione di visibilità e di marketing l'utilizzo di piattaforme come altervista per la presenza del proprio dominio. è più utile ai fini delle visualizzazioni utilizzare un proprio dominio (ad esempio artcamera.it o, se non esiste, artcameracolumpsi.it). 
+
