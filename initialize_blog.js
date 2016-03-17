@@ -7,10 +7,13 @@ $(document).ready(function() {
 			var obj = jQuery.parseJSON(response);
 
 			$.each( obj, function( index ) {
-					var temp = $("<div/>").html(obj[index].articles).text();
+					var temp = $("<div/>").html(obj[index].articolo).text();
 					
-					var temp2 = $("<div/>").html(obj[index].title).text();
-					$('#menublog').append("<p><img src=\"images/img_29_large.jpg\" class=\"img-rounded img-responsive\"></p> <p>Posted on "+obj[index].date+"</p> <h4>"+temp2+"</h4> <div class=\"anteprimatesto\">"+temp+"</div> <p><a href=\"article.php?id="+obj[index].id+"\">Comment / Continue Reading...</a></p><hr>");
+					var temp2 = $("<div/>").html(obj[index].titolo).text();
+
+					var temp3 = $("<div/>").html(obj[index].descrizione).text();
+
+					$('#menublog').append("<p> <h4>"+temp2+"</h4> <img src=\"show.php?id="+obj[index].id_immagine+"\" class=\"img-rounded img-responsive\"></p> <h5>"+temp3+"</h5>  <p>Pubblicato il "+obj[index].data+"</p> <div class=\"anteprimatesto\">"+temp+"</div> <p><a href=\"article.php?id="+obj[index].id+"\">Comment / Continue Reading...</a></p><hr>");
 				});			
 		}
 	);

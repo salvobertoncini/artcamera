@@ -20,7 +20,7 @@ function sanitize($str, $quotes = ENT_NOQUOTES)
 function initialize_blog()
 {
 	$risposta = [];
-	$sql = "SELECT * FROM `blog` ORDER BY id DESC ";	
+	$sql = "SELECT * FROM `post` ORDER BY id DESC ";	
 	$query = @mysql_query($sql) or die (mysql_error());
 
 	//verifichiamo che siano presenti records
@@ -48,7 +48,7 @@ function initialize_blog()
 function initialize_insert_post()
 {
 	$risposta =[];
-	$sql = "SELECT * FROM `images` ORDER BY id DESC";
+	$sql = "SELECT * FROM `image` ORDER BY id DESC";
 	$query = @mysql_query($sql) or die (mysql_error());
 
 //verifichiamo che siano presenti records
@@ -59,7 +59,7 @@ function initialize_insert_post()
 		{  
 
 			$id = $row['id'];
-			$name = $row['name'];
+			$name = $row['nome'];
 
 			$data = array('id'=> $id, 'nome'=>$name);
 			array_push($risposta, $data);
@@ -72,7 +72,7 @@ function initialize_insert_post()
 function insert_post($descrizione, $titolo, $articolo, $id_immagine)
 {
 
-	$sql = "INSERT INTO `posts`(`id`, `id_image`, `titolo`, `descrizione`, `articolo`, `data`) VALUES (null,'$id_immagine','$titolo','$descrizione','$articolo',CURDATE())";
+	$sql = "INSERT INTO `post`(`id`, `id_image`, `titolo`, `descrizione`, `articolo`, `data`) VALUES (null,'$id_immagine','$titolo','$descrizione','$articolo',CURDATE())";
 	$query = @mysql_query($sql) or die (mysql_error());
 	return true;
 }

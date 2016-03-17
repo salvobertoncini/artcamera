@@ -2,12 +2,6 @@
 <html lang="en">
 	<head>
 		<?php @include "head.php"; ?>
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/javascript" src="initialize_insert_post.js"></script>
-        <script type="text/javascript" src="insert_post.js"></script>
-
         <!-- ckeditor -->
     <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 
@@ -24,7 +18,8 @@
                         <form action="" method="POST" id="submitForm">
                             <div id="loading"></div>
                             <h2>Inserisci Post</h2>
-                                titolo:   <input class="form-control" type="text" name="titolo" id="titolo">
+                                titolo:   <textarea class="form-control" type="text" name="titolo" id="titolo"></textarea>
+                                <script>CKEDITOR.replace( 'titolo' );</script> 
                                 <br>
                                 descrizione:   <textarea class="form-control" type="text" name="descrizione" id="descrizione"></textarea>
                                 <script>CKEDITOR.replace( 'descrizione' );</script>
@@ -43,6 +38,12 @@
 
     	<?php @include "footer.php"; ?>
         <?php @include "script.php"; ?>
+                <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/javascript" src="initialize_insert_post.js"></script>
+        <script type="text/javascript" src="insert_post.js"></script>
+
 
     </body>
 </html>
