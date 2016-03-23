@@ -19,7 +19,7 @@ $(document).ready(function() {
 					alert("Dati Errati, ridigita!");
 					window.location.replace("login.php");
 				}
-			}
+			});
 		});
   });
 });

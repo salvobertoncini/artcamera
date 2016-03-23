@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 centered">
-                        <form role="form" enctype="multipart/form-data" action="upload_image.php" method="post">
+                        <form role="form" enctype="multipart/form-data" action="upload.php" method="post">
                             <h2>Inserisci Immagine</h2>
                             <br>
                             <input type="file" name="file" size="40"/><br>

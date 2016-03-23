@@ -5,9 +5,11 @@ $(document).ready(function() {
 		function(response)
 		{
 			var obj = jQuery.parseJSON(response);
+
 			$.each( obj, function( index ) {
-				  $('#menuimmagini').append("<option value='"+obj[index].id+"'>"+obj[index].id+") "+obj[index].nome+"</option>")
+				  $('#menuimmagini').append("<option value='"+obj[index].nome+"'>"+obj[index].id+") "+obj[index].nome+"</option>")
 				});
+			$('#menuimmagini').append("<option value=\"\">NESSUNA IMMAGINE</option>");
 			
 		}
 	);

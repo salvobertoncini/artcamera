@@ -17,6 +17,32 @@ function sanitize($str, $quotes = ENT_NOQUOTES)
 	return $str;
 }
 
+function initialize_index()
+{
+	$risposta = [];
+	$sql = "SELECT * FROM `video` ORDER BY id DESC ";	
+	$query = @mysql_query($sql) or die (mysql_error());
+
+	//verifichiamo che siano presenti records
+	if(mysql_num_rows($query) > 0)
+	{
+
+		while($row = mysql_fetch_array($query))
+		{
+			$id = $row['id'];
+			$video = $row['video'];
+			$titolo = $row['titolo'];
+			$descrizione = $row['descrizione'];
+			$date = $row['data'];
+
+			$data = array('id'=> $id, 'titolo'=>$titolo, 'descrizione'=>$descrizione, 'video'=>$video, 'data'=>$date);
+			array_push($risposta, $data);
+		}
+	}
+
+	return $risposta;
+}
+
 function initialize_blog()
 {
 	$risposta = [];
@@ -31,13 +57,13 @@ function initialize_blog()
 		{  
 
 			$id = $row['id'];
-			$id_immagine = $row['id_image'];
+			$immagine = $row['image'];
 			$titolo = $row['titolo'];
 			$descrizione = $row['descrizione'];
 			$articolo = $row['articolo'];
 			$date = $row['data'];
 
-			$data = array('id'=> $id, 'id_immagine' => $id_immagine, 'titolo'=>$titolo, 'descrizione'=>$descrizione, 'articolo'=>$articolo, 'data'=>$date);
+			$data = array('id'=> $id, 'immagine' => $immagine, 'titolo'=>$titolo, 'descrizione'=>$descrizione, 'articolo'=>$articolo, 'data'=>$date);
 			array_push($risposta, $data);
 		}
 	}
@@ -48,31 +74,25 @@ function initialize_blog()
 function initialize_insert_post()
 {
 	$risposta =[];
-	$sql = "SELECT * FROM `image` ORDER BY id DESC";
-	$query = @mysql_query($sql) or die (mysql_error());
 
-//verifichiamo che siano presenti records
-	if(mysql_num_rows($query) > 0)
+	$dirname = "images/";
+	$images = glob($dirname."*.*");
+	$id = 1;
+
+	foreach($images as $image) 
 	{
-
-		while($row = mysql_fetch_array($query))
-		{  
-
-			$id = $row['id'];
-			$name = $row['nome'];
-
-			$data = array('id'=> $id, 'nome'=>$name);
-			array_push($risposta, $data);
-		}
+		$data = array('id'=> $id, 'nome'=>$image);
+		array_push($risposta, $data);
+		$id++;
 	}
-
+	
 	return $risposta;
 }
 
 function insert_post($descrizione, $titolo, $articolo, $id_immagine)
 {
 
-	$sql = "INSERT INTO `post`(`id`, `id_image`, `titolo`, `descrizione`, `articolo`, `data`) VALUES (null,'$id_immagine','$titolo','$descrizione','$articolo',CURDATE())";
+	$sql = "INSERT INTO `post`(`id`, `image`, `titolo`, `descrizione`, `articolo`, `data`) VALUES (null,'$id_immagine','$titolo','$descrizione','$articolo',CURDATE())";
 	$query = @mysql_query($sql) or die (mysql_error());
 	return true;
 }
@@ -135,6 +155,11 @@ function insert_video($titolo, $descrizione, $video)
 
 		case "InitializeBlog":
 			$return = initialize_blog();
+			returnsomething($return);
+			break;
+
+		case "InitializeIndex":
+			$return = initialize_index();
 			returnsomething($return);
 			break;
 

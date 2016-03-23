@@ -9,7 +9,7 @@
 	</ul>
 	<h3 class="fh5co-lead">Connect with us</h3>
 	<p class="fh5co-social-icons">
-		<a href="#"><i class="icon-twitter"></i></a>
+		<a href="#"><i class="icon-vimeo"></i></a>
 		<a href="https://www.facebook.com/ArtCameraDiColumpsiDomenico/?fref=ts" target="_blank"><i class="icon-facebook"></i></a>
 		<a href="#"><i class="icon-instagram"></i></a>
 		<a href="#"><i class="icon-youtube"></i></a>
